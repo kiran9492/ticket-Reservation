@@ -16,7 +16,7 @@ on:
          run : mvn validate 
 
         -name : compile with maven
-         run : mvn compile
+         run : mvn compile 
 
         -name : test with maven
          run : mvn test
