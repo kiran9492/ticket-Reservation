@@ -21,7 +21,7 @@ jobs:
       - name: compile with maven
         run: mvn compile 
 
-      - name: test with maven
+      - name: test with maven 
         run: mvn test
 
       - name: package with maven
