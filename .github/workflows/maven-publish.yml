@@ -1,0 +1,32 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name : ci/cd pipeline to deploy to tomcat 
+on:
+  push:
+    branches: master
+    workflow_dispatch:
+jobs:
+    build-deploy:
+      runs-on: ubuntu-latest
+      steps:
+        -name: checkout code
+         uses: actions/checkout@v3
+
+        -name: set -up jdk
+         user: actions/setup-java@v3
+         with:
+            distribution : "temrurin'
+            java-version : '17'  
+        -name : validate with  maven
+          run : mvn validate 
+
+        -name : compile with maven
+          run : mvn compile  
+
+        -name : test with maven
+          run : mvn test
+
+        -name : package with maven
+          run :  mvn package
+      
