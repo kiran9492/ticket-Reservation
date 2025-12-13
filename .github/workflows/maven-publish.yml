@@ -14,7 +14,7 @@ jobs:
         with:
           distribution: 'temurin' 
           java-version: '17'
-
+ 
       - name: validate with maven
         run: mvn validate
 
