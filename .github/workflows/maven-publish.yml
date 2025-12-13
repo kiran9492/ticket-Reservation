@@ -1,0 +1,25 @@
+name : ci/cd pipeline to deploy to tomcat 
+on:
+  push:
+    build-deploy:
+      runs-on: ubuntu -latest
+      steps:
+        -name: checkout code
+         uses: action/checkout@v3
+
+        -name: set -up jdk
+         user: actions/setup-java@v3
+         with:
+            distribution : "temrurin'
+            java-version : '17'  
+        -name : validate with  maven
+         run : mvn validate 
+
+        -name : compile with maven
+         run : mvn compile  
+
+        -name : test with maven
+         run : mvn test
+
+        -name : package with maven
+         run :  mvn clean package 
