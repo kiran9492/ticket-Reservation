@@ -67,9 +67,9 @@ jobs:
 
       - name: deploy war to tomcat PRE-PROD
         run: |
-          curl -v -u ${{ secrets.TOMCAT_USER_PREPROD }}:${{ secrets.TOMCAT_PASS_PREPROD }} \
+          curl -v -u ${{ secrets.TOMCAT_USER_PRE_PROD }}:${{ secrets.TOMCAT_PASS_PRE_PROD }} \
             -T TrainBook-1.0.0-SNAPSHOT.war \
-            "${{ secrets.TOMCAT_HOST_PREPROD }}:8080/manager/text/deploy?path=/TrainBook&update=true"
+            "${{ secrets.TOMCAT_HOST_PRE_PROD }}:8080/manager/text/deploy?path=/TrainBook&update=true"
 # ---------------- PROD ----------------
   deploy-prod:
     needs: deploy-preprod
